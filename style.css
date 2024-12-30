@@ -1,0 +1,655 @@
+/* Ogólne ustawienia */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; /* Zamieniamy na bardziej nowoczesny font */
+    scroll-behavior: smooth; /* Dodaje płynne przewijanie */
+}
+
+body {
+    background: linear-gradient(135deg, #121212, #1a1a1a);
+    color: #f0f0f0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Styl nagłówka i nawigacji */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: #1c1c1c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: #1c1c1c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header .logo img {
+    max-width: 150px;
+    height: auto;
+}
+
+
+nav a {
+    margin: 0 15px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff6347;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+nav a:hover {
+    color: #ff6347;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Sekcja główna */
+#home {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(145deg, #1c1c1c, #121212);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#home h1 {
+    font-size: 2.8em;
+    margin-bottom: 15px;
+    color: #ff6347;
+}
+
+#home p {
+    font-size: 1.3em;
+    margin-bottom: 25px;
+    color: #cccccc;
+}
+
+#home .buy-now {
+    padding: 12px 25px;
+    background-color: #ff6347;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#home .buy-now:hover {
+    background-color: #ff4500;
+    transform: translateY(-2px);
+}
+
+#home .video iframe {
+    margin-top: 20px;
+    width: 80%;
+    max-width: 640px;
+    height: 360px;
+    border: 2px solid #333;
+    border-radius: 10px;
+}
+
+
+/* Sekcja produktów */
+#products {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #1a1a1a;
+}
+
+#products h2 {
+    font-size: 2.5em;
+    color: #ff6347;
+    margin-bottom: 25px;
+}
+
+.product {
+    display: inline-block;
+    width: 280px;
+    margin: 20px;
+    background-color: #2e2e2e;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product h3 {
+    font-size: 1.5em;
+    color: #ff6347;
+    margin: 15px 0;
+}
+
+.product p {
+    font-size: 1em;
+    color: #cccccc;
+    margin-bottom: 15px;
+}
+
+.product .buy-now {
+    padding: 10px 20px;
+    background-color: #ff6347;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product .buy-now:hover {
+    background-color: #ff4500;
+}
+
+/* Kontener dla produktów */
+.products-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.product {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.carousel-image {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.carousel-image.active {
+    opacity: 1;
+    position: relative;
+}
+
+
+/* Sekcja bloga */
+#blog {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#blog h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.blog-posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.blog-post {
+    background-color: #2e2e2e;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.blog-post:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.blog-post img {
+    width: 100%;
+    height: auto;
+}
+
+.post-content {
+    padding: 15px;
+}
+
+.post-content h3 {
+    color: #ff6347;
+    margin-bottom: 10px;
+}
+
+.post-content p {
+    color: #cccccc;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #ff6347;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.read-more:hover {
+    background-color: #ff4500;
+}
+
+/* Sekcja o firmie */
+#about {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Sekcja kontaktu */
+#contact {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #1c1c1c;
+}
+
+#contact h2 {
+    font-size: 2.5em;
+    color: #ff6347;
+    margin-bottom: 20px;
+}
+
+.contact-options a, .social-media a {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 18px;
+    background-color: #333;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+.contact-options a:hover, .social-media a:hover {
+    background-color: #ff6347;
+    transform: translateY(-2px);
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.contact-icons .icon {
+    font-size: 2em; /* Rozmiar ikony */
+    color: #333;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.contact-icons .icon:hover {
+    background-color: #ff6347; /* Kolor tła przy najechaniu */
+    color: #fff; /* Kolor ikony przy najechaniu */
+}
+
+.contact-icons .icon i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* Stopka */
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #222;
+    color: #ffffff;
+    font-size: 0.9em;
+}
+
+/* Style domyślne - dla większych ekranów */
+body {
+    font-size: 18px;
+    /* Inne style dla komputerów stacjonarnych */
+}
+
+/* Dla tabletów w orientacji poziomej i mniejszych */
+@media (max-width: 1024px) {
+    .header, .nav, .main, .footer {
+        padding: 10px;
+    }
+    .product {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Dla tabletów w orientacji pionowej i mniejszych */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    .logo img {
+        width: 70px;
+    }
+    .nav a {
+        display: block;
+        margin: 5px 0;
+    }
+    .product {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/* Dla smartfonów */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    .header, .footer {
+        text-align: center;
+    }
+    .logo img {
+        width: 50px;
+    }
+    .buy-now {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+
+/* Style animacji dla przycisków */
+.buy-now {
+    padding: 10px 20px;
+    background-color: #ff5733;
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, background-color 0.3s ease;
+}
+
+.buy-now:hover {
+    background-color: #e04d2c;
+    transform: scale(1.05);
+}
+
+
+/* Media queries dla urządzeń mobilnych */
+@media (max-width: 768px) {
+    header nav a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .product {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .video iframe {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 300px; /* Możesz dostosować do szerokości, jaką chcesz */
+    height: auto;
+    overflow: hidden;
+}
+
+.carousel-image {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.carousel-image.active {
+    opacity: 1;
+    position: relative;
+}
+
+/* Stylizacja dla sekcji głównej */
+#home {
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+#home h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+#home p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Stylizacja dla sekcji z filmem */
+.video-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.video {
+    width: 90%; /* Możesz dostosować szerokość, np. 80% lub mniej, zależnie od preferencji */
+    max-width: 800px;
+    border-radius: 8px; /* Zaokrąglenie rogów filmu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Lekki cień dla lepszego efektu */
+    margin-bottom: 15px;
+}
+
+/* Wyrównanie wideo do środka */
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Stylizacja dla przycisku Kup Teraz */
+.buy-now {
+    padding: 10px 20px;
+    background-color: #ff5733;
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, background-color 0.3s ease;
+}
+
+.buy-now:hover {
+    background-color: #e04d2c;
+    transform: scale(1.05);
+}
+
+
+/* Stylizacja kontenera nawigacji */
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+/* Ukrywanie menu na mniejszych ekranach */
+#nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* Stylizacja dla ikon */
+#nav-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#nav-menu a:hover {
+    color: #ff6347;
+}
+
+/* Stylizacja dla mniejszych ekranów */
+@media (max-width: 768px) {
+    #nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-container.active #nav-menu {
+        display: flex;
+    }
+}
+
+
+#nav-menu.show {
+    display: flex;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.menu-toggle {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+/* Stylizacja pełnego menu na większych ekranach */
+.nav-container {
+    display: flex; /* Pełna nawigacja na dużych ekranach */
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-toggle {
+    display: none; /* Ukrywamy hamburger na dużych ekranach */
+}
+
+/* Stylizacja rozwijanego menu na mniejszych ekranach */
+@media (max-width: 768px) {
+    .nav-container {
+        display: none; /* Ukrywamy pełne menu */
+    }
+
+    .nav-container.active {
+        display: flex; /* Pokaż menu po kliknięciu */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #222;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .nav-container a {
+        margin: 10px 0;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .menu-toggle {
+        display: block; /* Pokazujemy hamburger na mniejszych ekranach */
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #ffffff;
+    }
+}
